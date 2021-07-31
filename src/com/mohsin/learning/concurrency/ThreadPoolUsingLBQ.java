@@ -63,11 +63,11 @@ public class ThreadPoolUsingLBQ {
         }
 
         public synchronized void execute(Runnable task) throws InterruptedException{
-            System.out.println("Task Submitted");
             if (isShutdownInitialized) {
                 System.out.println("Shutdown initialized...No new task submitted");
                 return;
             }
+            System.out.println("Task Submitted");
             queue.put(task);
         }
 
