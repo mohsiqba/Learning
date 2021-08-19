@@ -21,8 +21,6 @@ public class RateLimitingInterceptor extends HandlerInterceptorAdapter {
     @Value("${rate.limit.hourly.limit}")
     private int hourlyLimit;
  
-    private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
- 
     private Map<String, Optional<SimpleRateLimiter>> limiters = new ConcurrentHashMap<>();
      
     @Override
@@ -37,7 +35,7 @@ public class RateLimitingInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         SimpleRateLimiter rateLimiter = getRateLimiter(clientId);
-        boolean allowRequest = limiter.tryAcquire();
+        boolean allowRequest = rateLimiter.tryAcquire();
      
         if (!allowRequest) {
             response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
@@ -54,13 +52,15 @@ public class RateLimitingInterceptor extends HandlerInterceptorAdapter {
  
     private SimpleRateLimiter createRateLimiter(String applicationId) {
         logger.info("Creating rate limiter for applicationId={}", applicationId);
-        return SimpleRateLimiter.create(hourlyLimit, TimeUnit.HOURS, scheduler, applicationId);
+        return SimpleRateLimiter.create(hourlyLimit, TimeUnit.HOURS);
     }
  
      
     @PreDestroy
     public void destroy() {
         // loop and finalize all limiters
-        scheduler.shutdown();
+        for (Optional<SimpleRateLimiter> limiter:limiters.values()) {
+            limiter.get().stop();
+        }
     }
 }
