@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 27-May-2021
  * Description :
  */

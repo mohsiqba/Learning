@@ -4,7 +4,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 22-Jun-2021
  * Description :
  */

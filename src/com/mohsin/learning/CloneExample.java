@@ -1,7 +1,7 @@
 package com.mohsin.learning;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 26-Jun-2021
  * Description :
  */

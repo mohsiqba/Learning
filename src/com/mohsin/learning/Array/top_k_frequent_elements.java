@@ -3,7 +3,7 @@ package com.mohsin.learning.Array;
 import java.util.*;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 28-May-2021
  * Description :
  */

@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 25-May-2021
  * Description :
  */

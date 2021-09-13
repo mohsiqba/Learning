@@ -1,7 +1,7 @@
 package com.mohsin.learning.concurrency;
 
 /**
- * @author : m0i005b (mohsin.iqbal@walmart.com)
+ * @author : Mohsin Iqbal
  * Date : 21-Jun-2021
  * Description :
  */
